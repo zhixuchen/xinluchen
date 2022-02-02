@@ -29,6 +29,10 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+
+
+    'simpleui',
+    'import_export',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +45,13 @@ INSTALLED_APPS = [
     'Staff_info'
 
 ]
+SIMPLEUI_HOME_INFO = True  # 去掉报告问题
+SIMPLEUI_HOME_ACTION = False  # 去掉"最近动作"
+SIMPLEUI_HOME_QUICK = True #显示快速操作
+IMPORT_EXPORT_USE_TRANSACTIONS= True
+SIMPLEUI_LOADING = False
+SIMPLEUI_STATIC_OFFLINE = True
+SIMPLEUI_DEFAULT_THEME = 'admin.lte.css'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -129,10 +140,11 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',),
 
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',# 进行token认证
+        'rest_framework_simplejwt.authentication.JWTAuthentication',  # 进行token认证
         # ''
     )
 }
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 import datetime
 
@@ -152,3 +164,47 @@ AUTH_PASSWORD_VALIDATORS = [
         'OPTIONS': {'min_length': 5}
     },
 ]
+
+SIMPLEUI_CONFIG = {
+    # 是否使用系统默认菜单，自定义菜单时建议关闭。
+    'system_keep': False,
+
+    # 用于菜单排序和过滤, 不填此字段为默认排序和全部显示。空列表[] 为全部不显示.
+    'menu_display': ['员工信息', '客户档案','认证和授权'],
+
+    # 设置是否开启动态菜单, 默认为False. 如果开启, 则会在每次用户登陆时刷新展示菜单内容。
+    # 一般建议关闭。
+    'dynamic': False,
+    # 'menus': [
+    #     {
+    #         'app': 'Staff_info',
+    #         'name': '员工信息',
+    #         'icon': 'fas fa-user-shield',
+    #         'models': [
+    #             {
+    #                 'name': '用户列表',
+    #                 'icon': 'fa fa-user',
+    #                 'url': 'auth/user/'
+    #             },
+    #             {
+    #                 'name': '用户组',
+    #                 'icon': 'fa fa-th-list',
+    #                 'url': 'auth/group/'
+    #             }
+    #         ]
+    #     },
+    #
+    #     {
+    #         'name': '客户档案',
+    #         'icon': 'fa fa-th-list',
+    #         'models': [
+    #             {
+    #                 'name': '客户档案',
+    #                 # 注意url按'/admin/应用名小写/模型名小写/'命名。
+    #                 'url': '/admin/Customer_profile/',
+    #                 'icon': 'fa fa-tasks'
+    #             },
+    #         ]
+    #     },
+    # ]
+}

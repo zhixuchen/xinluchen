@@ -1,5 +1,7 @@
 from django.db import models
 import django_filters
+from Staff_info.models import UserProfile
+
 
 
 # Create your models here.
@@ -39,6 +41,8 @@ class Customer(models.Model):
     cumulative_consumption = models.CharField('累计消费', blank=True, default="", max_length=255)
     days_before_arrival = models.CharField('未到店天数', blank=True, default="", max_length=255)
     total_number_of_arrivals = models.CharField('总到店次数', blank=True, default="", max_length=255)
+
+
 
     def __str__(self):
         return self.name

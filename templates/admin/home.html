@@ -1,0 +1,76 @@
+{% load i18n static simpletags %}
+
+<div id="home">
+
+    <el-row class="info-card">
+        {% if "SIMPLEUI_HOME_QUICK"|get_config != False %}
+            <el-card class="timeline">
+                <div slot="header" class="clearfix">
+                    <div>
+                        <h3 style=" text-align: center;  ">今日业绩（元）</h3>
+                        <h3 style=" text-align: center;  ">0.00</h3>
+                    </div>
+                </div>
+                <div  style=" text-align: center;  ">
+                    <div style=" text-align: center;  ">
+                        <div style="float: left">
+                            <h4>接车数</h4><h4 style=" text-align: center;  "> 0</h4>
+                        </div>
+                        <div style="float:left;margin-left:20px;">
+                            <h4>在厂数 </h4><h4 style=" text-align: center;  ">5</h4>
+                        </div>
+                        <div style="float:left;margin-left:20px;">
+                            <h4>交车数</h4> <h4 style=" text-align: center;  ">0</h4>
+                        </div>
+                    </div>
+
+
+                </div>
+            </el-card>
+        {% endif %}
+        {% if "SIMPLEUI_HOME_QUICK"|get_config != False %}
+            <el-card class="timeline">
+                <div slot="header" class="clearfix">
+                    <span> 标题</span>
+                </div>
+                <div v-for="(c,j) in models" :key="c.name" class="quick-wrap">
+                    <a href="javascript:;" @click="openTab(c,(j+1)+'')">
+                        <span class="icon" :class="c.icon"></span>
+                        <span class="card-name" v-text="c.name"></span>
+                    </a>
+                </div>
+            </el-card>
+        {% endif %}
+        {% if "SIMPLEUI_HOME_QUICK"|get_config != False %}
+            <el-card class="timeline">
+                <div slot="header" class="clearfix">
+                    <span> 标题</span>
+                </div>
+
+            </el-card>
+        {% endif %}
+        {% if "SIMPLEUI_HOME_QUICK"|get_config != False %}
+            <el-card class="timeline">
+                <div slot="header" class="clearfix">
+                    <span> 标题</span>
+                </div>
+
+            </el-card>
+        {% endif %}
+        {% if "SIMPLEUI_HOME_QUICK"|get_config != False %}
+            <el-card class="timeline">
+                <div slot="header" class="clearfix">
+                    <span> 标题</span>
+                </div>
+
+            </el-card>
+        {% endif %}
+    </el-row>
+
+
+</div>
+
+
+<script>
+
+</script>
